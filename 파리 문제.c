@@ -25,7 +25,7 @@ float measure (void) {
 	
 	colA = - (float)a / ((float)x - (float)z);
 	colB = (float)b / ((float)y + (float)z);
-	colAA = (float)distance - colB * ((float)x + (float)y) / ((float)x + (float)z);
+	colAA = ((float)distance - colB * ((float)x + (float)y)) / ((float)x + (float)z);
 
 	// 조건식 (경우의 수와 거리 값 설정)
 	if (x >= z && y<z && colA > colB) {
