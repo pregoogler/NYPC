@@ -9,12 +9,12 @@ float measure (void) {
 	float time = 0, result = 0, colA = 0, colB = 0, colAA = 0;
 	// a와 b 값 입력
 	printf("\na와 b의 좌표를 입력하십시오. : ");
-	scanf_s("%d %d", &a, &b);
+	scanf("%d %d", &a, &b);
 	// a와 b 값 출력
 	printf("\n(a : %d, b : %d)\n", a, b);
 	// 기차 A와 B, 파리의 속력인 x, y, z 값 입력
 	printf("\n기차 A의 속력, 기차 B의 속력, 파리의 속력을 입력하십시오. : ");
-	scanf_s("%d %d %d", &x, &y, &z);
+	scanf("%d %d %d", &x, &y, &z);
 	// x, y, z 값 출력
 	printf("\n기차 A의 속력 : %d 기차 B의 속력 : %d 파리의 속력 : %d\n", x, y, z);
 	
@@ -25,7 +25,7 @@ float measure (void) {
 	
 	colA = - (float)a / ((float)x - (float)z); //A까지 부딪히는 시간
 	colB = (float)b / ((float)y + (float)z);		//B까지 부딪히는 시간
-	colAA = (float)distance - colB * ((float)x + (float)y) / ((float)x + (float)z);	//
+	colAA = ((float)distance - colB * ((float)x + (float)y)) / ((float)x + (float)z);	//
 
 	// 조건식 (경우의 수와 거리 값 설정)
 	if (x >= z && y<z && colA > colB) {
@@ -63,7 +63,7 @@ int main (void) {
 
 	// 테스트 케이스 입력
 	printf("\n- 입력 -\n\n테스트 케이스의 수를 입력하십시오. : ");
-	scanf_s("%d", &testcase);
+	scanf("%d", &testcase);
 	// 테스트 케이스 출력
 	printf("\n테스트 케이스 : %d\n", testcase);
 	// 테스트 케이스의 수 만큼 measure 변수 실행
