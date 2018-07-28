@@ -23,9 +23,9 @@ float measure (void) {
 	distance = b - a;
 	time = (float)distance / ((float)x + (float)y);
 	
-	colA = - (float)a / ((float)x - (float)z);
-	colB = (float)b / ((float)y + (float)z);
-	colAA = (float)distance - colB * ((float)x + (float)y) / ((float)x + (float)z);
+	colA = - (float)a / ((float)x - (float)z); //A까지 부딪히는 시간
+	colB = (float)b / ((float)y + (float)z);		//B까지 부딪히는 시간
+	colAA = (float)distance - colB * ((float)x + (float)y) / ((float)x + (float)z);	//
 
 	// 조건식 (경우의 수와 거리 값 설정)
 	if (x >= z && y<z && colA > colB) {
