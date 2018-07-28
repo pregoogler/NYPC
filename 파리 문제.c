@@ -1,6 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
+#include <float.h> 
+#include <math.h>
 
 float measure (void) {
 
@@ -27,6 +29,8 @@ float measure (void) {
 	colB = (float)b / ((float)y + (float)z);		//B까지 부딪히는 시간
 	colAA = ((float)distance - colB * ((float)x + (float)y)) / ((float)x + (float)z);	//
 
+	printf("\ncolA : %f colB : %f colAA : %f\n", colA, colB, colAA);
+
 	// 조건식 (경우의 수와 거리 값 설정)
 	if (x >= z && y<z && colA > colB) {
 		number = 1;
@@ -40,7 +44,7 @@ float measure (void) {
 		number = 2;
 		result = colB * z + time * y - colB * y;
 	}
-	else if (colA == colB || x, y < z) {
+	else if ((fabsf(colA - colB) <= FLT_EPSILON) || (x, y < z)) {
 		number = 3;
 		result = time * z;
 	}
